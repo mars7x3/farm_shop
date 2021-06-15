@@ -48,3 +48,8 @@ class CategoryListView(ListView):
     template_name = 'product/products.html'
     context_object_name = 'categories'
 
+
+class ContactView(ListView):
+    model = Content
+    template_name = 'product/contact.html'
+
