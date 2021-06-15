@@ -1,0 +1,88 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <!-- Page Content -->
+    <div class="page-heading products-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>новая колекция</h4>
+              <h2>Продукция</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="products">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-12">
+            <div class="filters">
+              <ul>
+
+                  <li class="active" data-filter="*">Все</li>
+                  <li data-filter=".category1">Ale</li>
+                  <li data-filter=".category2">Ale2</li>
+                  <li data-filter=".category3">Ale3</li>
+                  <li data-filter=".category11">Ale4</li>
+
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="filters-content">
+                <div class="row grid">
+
+                  {% for pro in products %}
+
+                    <div class="col-lg-4 col-md-4 all {{ pro.category.slug }}">
+
+                      <div class="product-item">
+                        <a href="#"><img src="{{ pro.image.url }}" alt=""></a>
+                        <div class="down-content">
+                          <a href="#"><h4>{{ pro.name }}</h4></a>
+                          <h6>$18.25</h6>
+                          <p>{{ pro.description|truncatewords:10 }}</p>
+
+                          <span>Reviews (12)</span>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  {% endfor %}
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <ul class="pages">
+              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    
+{% endblock %}
