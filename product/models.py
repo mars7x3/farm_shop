@@ -15,6 +15,11 @@ class Category (models.Model):
             return f'{self.parent} | {self.title}'
         return self.title
 
+    class Meta:
+        verbose_name_plural = 'Категории'
+        verbose_name = 'Категория'
+
+
 
 class Product(models.Model):
     STATUS_CHOICES = (
@@ -42,9 +47,34 @@ class Product(models.Model):
 
     class Meta:
         ordering = ['-id', ]
+        verbose_name_plural = 'Продукты'
+        verbose_name = 'Продукт'
 
 
 
 class Content(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название компании')
     company_text = models.TextField(verbose_name='О компании')
+
+
+
+class Order(models.Model):
+    USER_STATUS = (
+        ('Новая', 'Новая'), ('В обработке', 'В обработке'), ('Готово', 'Готово')
+    )
+
+    user_name = models.CharField(max_length=100, verbose_name='Имя')
+    user_email = models.CharField(max_length=100, verbose_name='Почта')
+    user_phone = models.CharField(max_length=100, verbose_name='Телефон')
+    user_message = models.TextField(verbose_name='Сообщение')
+    user_status = models.CharField(choices=USER_STATUS, max_length=100, verbose_name='Статус', default='Новая')
+
+    def __str__(self):
+        return self.user_name
+
+    class Meta:
+        ordering = ['-id', ]
+        verbose_name_plural = 'Заказы'
+        verbose_name = 'Заказ'
+
+
