@@ -46,13 +46,13 @@
                     <div class="col-lg-4 col-md-4 all {{ pro.category.slug }}">
 
                       <div class="product-item">
-                        <a href="#"><img src="{{ pro.image.url }}" alt=""></a>
+                        <a href="{%url 'detail' pro.id%}"><img src="{{ pro.image.url }}" alt=""></a>
                         <div class="down-content">
-                          <a href="#"><h4>{{ pro.name }}</h4></a>
-                          <h6>$18.25</h6>
+                          <a href="{%url 'detail' pro.id%}"><h4>{{ pro.name }}</h4></a>
+<!--                          <h6>$18.25</h6>-->
                           <p>{{ pro.description|truncatewords:10 }}</p>
 
-                          <span>Reviews (12)</span>
+<!--                          <span>Reviews (12)</span>-->
                         </div>
                       </div>
                     </div>
@@ -64,26 +64,30 @@
 
 
 
-
-
-
-
-                </div>
+             </div>
             </div>
           </div>
-          <div class="col-md-12">
-            <ul class="pages">
-              <li><a href="#">1</a></li>
-              <li class="active"><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-            </ul>
-          </div>
+
+
+
+
+
+
+
+
+
+
+
         </div>
       </div>
 
     </div>
+
+
+
+
+
+
 
     
 {% endblock %}

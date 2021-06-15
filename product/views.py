@@ -38,6 +38,8 @@ class ProductDetailView(DetailView):
 
 
 
+
+
 class ContentView(ListView):
     model = Content
     template_name = 'product/home.html'

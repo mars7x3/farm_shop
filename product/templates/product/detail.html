@@ -1,10 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'index.html' %}
+{% load static %}
 
-</body>
-</html>
+
+{% block content %}
+
+
+   <div class = "card-wrapper">
+      <div class = "card">
+        <!-- card left -->
+        <div style="margin-top: 100px;" class = "product-imgs">
+          <div class = "img-display">
+            <div class = "img-showcase">
+
+              <img src = "" alt = "">
+
+            </div>
+          </div>
+          <div class = "img-select">
+            <div class = "img-item">
+              <a href = "#" data-id = "1">
+                <img src = "{{ product.image.url }}" alt = "">
+              </a>
+            </div>
+
+
+            </div>
+
+
+
+
+          </div>
+        </div>
+        <!-- card right -->
+        <div class = "product-content">
+          <h2 class = "product-title">{{ product.name }}</h2>
+
+
+
+
+
+          <div class = "product-detail">
+            <h2>Описание: </h2>
+            <p>{{ product.description }}</p>
+
+
+          </div>
+
+          <div class = "purchase-info">
+
+            <a href="{% url 'contacts' %}"><button type = "button" class = "btn">
+              Заказать <i class = "fas fa-shopping-cart"></i>
+            </button></a>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+   {% endblock %}
