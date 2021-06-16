@@ -1,7 +1,20 @@
 {% extends 'index.html' %}
 {% load static %}
 
+{% block nav %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Главная
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'products' %}">Продукты</a>
+      </li>
 
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'contacts' %}">Контакты</a>
+      </li>
+{% endblock %}
 {% block content %}
    <!-- Page Content -->
     <div class="page-heading about-heading header-text">
@@ -31,8 +44,10 @@
           </div>
           <div class="col-md-6">
             <div class="left-content">
-              <h4>Наша компания</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat. Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis.</p>
+              {% for comp in company %}
+              <h4>{{comp.name}}</h4>
+              <p>{{ comp.company_text }}<br><br></p>
+              {% endfor %}
               <ul class="social-icons">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -140,7 +155,7 @@
               <div class="down-content">
                 <h4>Сертификат 1</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat.</p>
-                <a href="https://www.essens.company/sertifikaty" class="filled-button">Подробнее</a>
+                <a href="https://www.essens.company/sertifikaty" target="_blank" class="filled-button">Подробнее</a>
               </div>
             </div>
           </div>
@@ -153,7 +168,7 @@
               <div class="down-content">
                 <h4>Сертификат 2</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat.</p>
-                <a href="https://www.essens.company/sertifikaty" class="filled-button">Подробнее</a>
+                <a href="https://www.essens.company/sertifikaty" target="_blank" class="filled-button">Подробнее</a>
               </div>
             </div>
           </div>
@@ -167,7 +182,7 @@
               <div class="down-content">
                 <h4>Сертификат 3</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat.</p>
-                <a href="https://www.essens.company/sertifikaty" class="filled-button">Подробнее</a>
+                <a href="https://www.essens.company/sertifikaty" target="_blank" class="filled-button">Подробнее</a>
               </div>
             </div>
           </div>

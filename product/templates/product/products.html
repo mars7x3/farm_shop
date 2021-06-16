@@ -1,6 +1,19 @@
 {% extends 'index.html' %}
 {% load static %}
+{% block nav %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Главная
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'products' %}">Продукты</a>
+              </li>
 
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contacts' %}">Контакты</a>
+              </li>
+{% endblock %}
 
 {% block content %}
 
@@ -27,57 +40,46 @@
             <div class="filters">
 
               <ul>
-                  <li class="active" data-filter="*">Все</li>
-                  <li data-filter=".category1">Ale</li>
-                  <li data-filter=".category2">Ale2</li>
-                  <li data-filter=".category3">Ale3</li>
-                  <li data-filter=".category11">Ale4</li>
-                  <li data-filter=".category12">Ale5</li>
+              <li class="active" data-filter="*">Все</li>
+              {% for pro in products  %}
+                  <li data-filter=".{{ pro.category.slug }}">{{ pro.category.title  }}</li>
+              {% endfor %}
               </ul>
-
             </div>
           </div>
+
           <div class="col-md-12">
             <div class="filters-content">
                 <div class="row grid">
-
                   {% for pro in products %}
-
                     <div class="col-lg-4 col-md-4 all {{ pro.category.slug }}">
-
                       <div class="product-item">
                         <a href="{%url 'detail' pro.id%}"><img src="{{ pro.image.url }}" alt=""></a>
                         <div class="down-content">
                           <a href="{%url 'detail' pro.id%}"><h4>{{ pro.name }}</h4></a>
-<!--                          <h6>$18.25</h6>-->
                           <p>{{ pro.description|truncatewords:10 }}</p>
-
-<!--                          <span>Reviews (12)</span>-->
                         </div>
                       </div>
                     </div>
-
-
                   {% endfor %}
-
-
-
-
-
              </div>
             </div>
           </div>
 
-
-
-
-
-
-
-
-
-
-
+          <div class="col-md-12">
+            <ul class="pages">
+              {% for page in  paginator.page_range %}
+                {% if page == page_obj.number %}
+                <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+                {% else %}
+                <li><a href="?page={{ page }}">{{ page }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+              <li><a href="?page={{ page_obj.next_page_number }}"><i class="fa fa-angle-double-right"></i></a></li>
+              {% endif %}
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -89,5 +91,5 @@
 
 
 
-    
+
 {% endblock %}

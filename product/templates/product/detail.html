@@ -2,47 +2,96 @@
 {% load static %}
 
 
+
+{% block nav %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Главная
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'products' %}">Продукты</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contacts' %}">Контакты</a>
+              </li>
+{% endblock %}
+
 {% block content %}
 
 
-   <div class = "card-wrapper">
+<!--   <div class = "card-wrapper">-->
+<!--      <div class = "card">-->
+<!--        &lt;!&ndash; card left &ndash;&gt;-->
+<!--        <div style="margin-top: 80px;" class = "product-img">-->
+<!--          <div class = "img-display">-->
+<!--            <div class = "img-showcase">-->
+
+<!--&lt;!&ndash;              <img src = "{{ product.image.url }}" alt = "">&ndash;&gt;-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class = "img-select">-->
+<!--            <div class = "img-item">-->
+<!--              <a href = "{{ product.image.url }}" data-id = "1">-->
+<!--                <img src = "{{ product.image.url }}" alt = "">-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; card right &ndash;&gt;-->
+<!--        <div class = "product-content">-->
+<!--          <h2 class = "product-title">{{ product.name }}</h2>-->
+
+<!--          <div class = "product-detail">-->
+<!--            <h2>Описание: </h2>-->
+<!--            <p>{{ product.description }}</p>-->
+
+
+<!--          </div>-->
+
+<!--          <div class = "purchase-info">-->
+
+<!--            <a href="{% url 'contacts' %}"><button type = "button" class = "btn">-->
+<!--              Заказать <i class = "fas fa-shopping-cart"></i>-->
+<!--            </button></a>-->
+
+<!--          </div>-->
+
+
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+
+
+
+
+
+
+<div class = "card-wrapper">
       <div class = "card">
         <!-- card left -->
-        <div style="margin-top: 100px;" class = "product-imgs">
+        <div style="margin-top: 80px;" class = "product-imgs">
           <div class = "img-display">
             <div class = "img-showcase">
-
-              <img src = "" alt = "">
+              <img src = "{{product.image.url}}" alt = "shoe image">
 
             </div>
           </div>
-          <div class = "img-select">
-            <div class = "img-item">
-              <a href = "#" data-id = "1">
-                <img src = "{{ product.image.url }}" alt = "">
-              </a>
-            </div>
 
-
-            </div>
-
-
-
-
-          </div>
         </div>
-        <!-- card right -->
+
         <div class = "product-content">
-          <h2 class = "product-title">{{ product.name }}</h2>
-
-
-
+          <h2 class = "product-title">{{product.name}}</h2>
 
 
           <div class = "product-detail">
-            <h2>Описание: </h2>
-            <p>{{ product.description }}</p>
-
+            <h2>about this item: </h2>
+            <p></p>
+            <p>{{product.description}}</p>
 
           </div>
 
@@ -51,7 +100,6 @@
             <a href="{% url 'contacts' %}"><button type = "button" class = "btn">
               Заказать <i class = "fas fa-shopping-cart"></i>
             </button></a>
-
           </div>
 
 

@@ -57,17 +57,17 @@ class Content(models.Model):
     company_text = models.TextField(verbose_name='О компании')
 
 
-
 class Order(models.Model):
     USER_STATUS = (
         ('Новая', 'Новая'), ('В обработке', 'В обработке'), ('Готово', 'Готово')
     )
 
     user_name = models.CharField(max_length=100, verbose_name='Имя')
-    user_email = models.CharField(max_length=100, verbose_name='Почта')
+    user_email = models.EmailField(verbose_name='Почта')
     user_phone = models.CharField(max_length=100, verbose_name='Телефон')
     user_message = models.TextField(verbose_name='Сообщение')
     user_status = models.CharField(choices=USER_STATUS, max_length=100, verbose_name='Статус', default='Новая')
+    time_create = models.TimeField(auto_now_add=True, verbose_name='Время')
 
     def __str__(self):
         return self.user_name

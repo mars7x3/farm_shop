@@ -1,10 +1,11 @@
-
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.views.generic import *
-
-from .forms import CreateProductForm
+from django.views import View
+from .forms import OrderForm
 from .models import *
-
-
+from django.contrib import messages
 
 
 class ProductListView(ListView):
@@ -23,6 +24,7 @@ class ProductDetailView(DetailView):
 class ContentView(ListView):
     model = Content
     template_name = 'product/home.html'
+    context_object_name = 'company'
 
 
 class CategoryListView(ListView):
@@ -36,14 +38,13 @@ class ContactView(ListView):
     template_name = 'product/contact.html'
 
 
-class OrderView(CreateView):
-    model = Order
-    template_name = 'product/contact.html'
-    form_class = CreateProductForm
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['order_form'] = self.get_form(self.get_form_class())
-        return context
-
-
+class OrderCreateView(View):
+    @staticmethod
+    def post(request, *args, **kwargs):
+        form = OrderForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Заявка отправлена')
+            return HttpResponseRedirect(redirect_to=reverse_lazy('contacts'))
+        messages.add_message(request, messages.ERROR, 'Ошибка отправки данных')
+        return HttpResponseRedirect(redirect_to=reverse_lazy('contacts'))
