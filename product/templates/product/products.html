@@ -7,7 +7,7 @@
                 </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="{% url 'products' %}">Продукты</a>
+                <a class="nav-link" href="{% url 'products' %}">Продукция</a>
               </li>
 
               <li class="nav-item">
@@ -41,8 +41,8 @@
 
               <ul>
               <li class="active" data-filter="*">Все</li>
-              {% for pro in products  %}
-                  <li data-filter=".{{ pro.category.slug }}">{{ pro.category.title  }}</li>
+              {% for pro in categories  %}
+                  <li data-filter=".{{ pro.slug }}">{{ pro.title  }}</li>
               {% endfor %}
               </ul>
             </div>
