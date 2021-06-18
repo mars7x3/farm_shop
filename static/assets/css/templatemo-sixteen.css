@@ -89,15 +89,30 @@ a.filled-button:hover {
 }
 
 .products-heading {
-	background-image: url(../images/products-heading.jpg);
+	background-image: url(../images/bg.jpeg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;;
 }
 
 .about-heading {
-	background-image: url(../images/about-heading.jpg);
+	background-image: url(https://images.unsplash.com/photo-1609720597021-1498d6216a55?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTB8fG1lZGljaW5lfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;;
+	/* object-fit: cover; */
+	image-rendering: pixelated;
 }
 
+
 .contact-heading {
-	background-image: url(../images/contact-heading.jpg);
+	background-image: url(../images/bacground.jpeg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;;
 }
 
 .page-heading {
@@ -209,11 +224,15 @@ header {
 	z-index: 99999;
 	width: 100%;
 	height: 80px;
-	background-color: #232323;
+	background-color: #fff;
 	-webkit-transition: all 0.3s ease-in-out 0s;
     -moz-transition: all 0.3s ease-in-out 0s;
     -o-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
+}
+.log-img{
+	width: 70px;
+	margin-top: -15px;
 }
 header .navbar {
 	padding: 17px 0px;
@@ -273,7 +292,7 @@ header .navbar {
 	font-size: 15px;
 	font-weight: 500;
 	letter-spacing: 0.5px;
-	color: #fff;
+	color: #000 !important;
 	transition: all 0.5s;
 	margin-top: 5px;
 }
@@ -282,7 +301,7 @@ header .navbar {
 .navbar .navbar-nav .nav-link.active,
 .navbar .navbar-nav .nav-link.show,
 .navbar .navbar-nav .show>.nav-link {
-	color: #fff;
+	color: #000;
 	padding-bottom: 25px;
 	border-bottom: 3px solid #f33f3f;
 }
@@ -419,6 +438,7 @@ header .navbar {
 .product-item {
 	border: 1px solid #eee;
 	margin-bottom: 30px;
+min-height: 630px;	s
 }
 
 .product-item .down-content {
@@ -662,7 +682,7 @@ footer .inner-content p a {
 .products ul.pages li.active a {
 	background-color: #f33f3f;
 	border-color: #f33f3f;
-	color: #fff;
+	color: #000;
 }
 
 
@@ -743,12 +763,13 @@ footer .inner-content p a {
 /* Services */
 
 .services {
-	background-image: url(../images/services-bg.jpg);
+	background-image: url(../images/bacground.jpeg);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	padding: 100px 0px;
+	margin-top: 40px;
 }
 
 .services .service-item {
@@ -1248,7 +1269,12 @@ img{
     border-color: transparent;
     color: #fff;
 }
-
+.main-map{
+	width: 100%;
+}
+.map{
+	padding: 100px 0;
+}
 @media screen and (min-width: 992px){
     .card{
         display: grid;

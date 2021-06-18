@@ -2,16 +2,16 @@
 {% load static %}
 {% block nav %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Главная
+                <a style="color: black"  class="nav-link" href="{% url 'home' %}">Главная
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'products' %}">Продукция</a>
+                <a style="color: black" class="nav-link" href="{% url 'products' %}">Продукция</a>
               </li>
 
               <li class="nav-item active">
-                <a class="nav-link" href="{% url 'contacts' %}">Контакты</a>
+                <a style="color: black" class="nav-link" href="{% url 'contacts' %}" >Контакты</a>
               </li>
 {% endblock %}
 
@@ -27,8 +27,9 @@
                     {% for message in messages %}
                     <h2 style="color: #97FF46;" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h2>{% endfor %}
                 {% else %}
-              <h4>наши</h4>
-              <h2>Контакты</h2>
+              <!-- <h4>наши</h4>
+              <h2>Контакты</h2> -->
+              <img src="../../../static/assets/images/main-logo.png" alt="">
                 {% endif %}
             </div>
           </div>
@@ -71,7 +72,11 @@
       </div>
     </div>
 
-    
+    <div class="map">
+      <div class="container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.1604015117246!2d74.6017301157515!3d42.869458479156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb7d022ff777d%3A0x6def27c66bd6c89c!2z0JHQuNC30L3QtdGBLdGG0LXQvdGC0YAgItCg0L7RgdGB0LjRjyI!5e0!3m2!1sru!2skg!4v1624011010062!5m2!1sru!2skg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
     <div class="send-message">
       <div class="container">
         <div class="row">
